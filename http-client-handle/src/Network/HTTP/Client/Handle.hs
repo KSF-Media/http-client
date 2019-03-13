@@ -4,6 +4,15 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RankNTypes        #-}
 module Network.HTTP.Client.Handle where
+module Network.HTTP.Client.Handle
+  ( Handle()
+  , handleResponseOpen
+  , handleResponseClose
+  , handleWithHttpResponse
+  , modifyRequest
+  , modifyOpenedResponse
+  , newNetworkHandle
+  ) where
 
 import           Prelude
 
