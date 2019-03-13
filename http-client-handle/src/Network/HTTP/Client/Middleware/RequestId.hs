@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
 module Network.HTTP.Client.Middleware.RequestId where
 
 import           Prelude
 
-import Data.ByteString (ByteString)
-import Data.Data (Data)
-import Data.Typeable (Typeable)
-import GHC.Generics (Generic)
-import Data.Maybe (isJust)
+import           Data.ByteString            (ByteString)
+import           Data.Data                  (Data)
+import           Data.Maybe                 (isJust)
+import           Data.Typeable              (Typeable)
+import           GHC.Generics               (Generic)
 import           Network.HTTP.Client        as Http
 import           Network.HTTP.Client.Handle (Handle (..), modifyRequest)
 

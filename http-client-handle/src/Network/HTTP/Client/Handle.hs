@@ -112,6 +112,8 @@ modifyOpenedResponse f h = h
       f =<< handleResponseOpen h manager request
   }
 
+-- | A simple implementation of a 'Handle', can either be used as-is or extended
+--   to suit application needs.
 newNetworkHandle :: IO Handle
 newNetworkHandle = do
   pure Handle
