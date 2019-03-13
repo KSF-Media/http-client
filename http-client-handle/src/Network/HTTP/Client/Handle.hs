@@ -14,18 +14,11 @@ module Network.HTTP.Client.Handle
   , newNetworkHandle
   ) where
 
+import           Conduit                     (ConduitM, MonadResource, bracketP)
+import qualified Network.HTTP.Client         as Http
+import           Network.HTTP.Client.Conduit (Request, Response)
 import           Prelude
-
-import GHC.Generics (Generic)
-import Data.Data (Data)
-import Data.Typeable (Typeable)
-import Data.ByteString (ByteString)
-import Data.Maybe (isJust)
-import qualified Network.HTTP.Client as Http
-import           Network.HTTP.Client.Conduit (Request, Response, bodyReaderSource,
-                                                       defaultManagerSettings, parseRequest,
-                                                       responseStatus)
-import           UnliftIO                             (MonadUnliftIO, withRunInIO, bracket)
+import           UnliftIO                    (MonadUnliftIO, bracket, liftIO)
 
 data Handle = Handle
   -- ???: maybe it would be good to keep a manager scoped as one of the fields instead of
