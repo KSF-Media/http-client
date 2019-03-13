@@ -19,6 +19,9 @@ import           Network.HTTP.Client.Conduit (Request, Response, bodyReaderSourc
 import           UnliftIO                             (MonadUnliftIO, withRunInIO, bracket)
 
 data Handle = Handle
+  -- ???: maybe it would be good to keep a manager scoped as one of the fields instead of
+  --      taking it as argument everywhere where it's needed
+  --      (that would be an earlier binding, but usage would be less cumbersome)
   { handleResponseOpen  :: Http.Manager -> Http.Request -> IO (Response Http.BodyReader)
   , handleResponseClose :: forall a. Response a -> IO ()
   }
